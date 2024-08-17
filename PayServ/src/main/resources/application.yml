@@ -1,0 +1,32 @@
+server:
+  port: 8181
+
+spring:
+  application:
+    name: "PayServ"
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/limits
+    username: postgres
+    password: postgres
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: none
+    open-in-view: false
+
+service:
+  name: Gleb
+  family: Shishkin
+
+integrations:
+  executors:
+    payments-executor-client:
+      url: "http://localhost:8080"
+      connect-timeout: 1s
+      read-timeout: 30s
+
+
